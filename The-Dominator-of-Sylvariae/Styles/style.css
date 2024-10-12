@@ -1,0 +1,34 @@
+body {
+    padding: 0;
+    text-align: center;
+    margin: 0;
+  }
+  
+  #Sylvariae-intro {
+    padding: 20px 0px;
+  }
+  #Sylvariae-intro img {
+    width: 600px; 
+    height: auto; 
+}
+
+  
+  #Sylvariae-container {
+    display: none;
+    align-content: center;
+    overflow: hidden;
+    position: relative;
+    animation: slide 5s linear infinite;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  #Sylvariae-end {
+    display: none;
+    align-content: center;
+    padding: 20px 0px;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    animation: slide 5s linear infinite;
+  }
