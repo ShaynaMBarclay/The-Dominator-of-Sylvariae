@@ -4,6 +4,7 @@ class Game {
         this.gameScreen = document.getElementById("Sylvariae-container");
         this.endScreen = document.getElementById("Sylvariae-end");
         this.player = new Player(10, 10, 300, 300, "/images/player.png");
+        //this.obstacle = new Obstacle (10, 10, 300, 300, "/images/obstacle1.PNG")
         this.height = 600;
         this.width = 500;
         this.score = 0;
@@ -29,19 +30,50 @@ class Game {
         // runs the gameLoop on a requency of 60 times per second, also stores the ID of the interval
         this.gameIntervalId = setInterval(() => {
             this.gameLoop();
-        }, this.gameLoopFrequency)
-    }
-    update() {
-        this.player.move();
+        }, this.LoopFrequency)
     }
     gameLoop() {
         this.update();
-        //this checks when the game is over and if true, then stops the game
         if (this.gameIsOver === true) {
-            clearInterval(this.gameIntervalId);
+          clearInterval(this.gameIntervalId);
+        }
+      }
+    update() {
+        this.player.move();
+        //checking for collision and if the obstacle is on the screen
+        for (let i = 0; i < this.obstacles.length; i++) {
+            const obstacle = this.obstacle[i];
+            obstacle.move();
+        //if the player collides with an obstacle
+        if (this.player.didCollide(obstacle)) {
+         obstacle.element.remove();
+         this.obstacles.splice(i, 1);
+         this.lives--;
+         i--;
+        }  else if (obstacle.top > this.height) {
+            this.score++
+            obstacle.element.remove();
+            this.obstacles.splice(i, 1);
+            i--;
+        } 
+    } 
+        if (this.lives === 0) {
+            this.endGame();
+        } 
+        if (Math.random() > 0.98 && this.obstacle.length < 1) {
+            this.obstacle.push(new Obstacle(this.gameScreen));
         }
     }
-    
-    
+
+endGame() {
+    this.player.element.remove();
+    this.obstacle.forEach(obstacle => obstacle.element.remove());
+
+    this.gameIsOver = true;
+
+    this.gameScreen.style.display = "none";
+
+    this.gameEndScreen.style.display = "block";
 }
- 
+}
+
