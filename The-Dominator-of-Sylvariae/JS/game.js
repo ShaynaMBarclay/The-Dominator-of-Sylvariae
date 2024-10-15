@@ -4,10 +4,9 @@ class Game {
         this.gameScreen = document.getElementById("Sylvariae-container");
         this.endScreen = document.getElementById("Sylvariae-end");
         this.player = new Player(10, 10, 300, 300, "/images/player.png");
-        //this.obstacle = new Obstacle (10, 10, 300, 300, "/images/obstacle1.PNG")
         this.height = 600;
         this.width = 500;
-        this.obstacles = [new Obstacle()];
+        this.obstacles = [new Obstacle(0, "/images/obstacle1.png"), new Obstacle(0, "/images/obstacle2.png")];
         this.score = 0;
         this.gameIsOver = false;
         this.gameIntervalId;
@@ -20,7 +19,7 @@ class Game {
         this.gameScreen.style.display = "block";
         this.gameScreen.style.width = "100%";
         let backgroundImage = document.createElement("img");
-        backgroundImage.src = "/images/smaller.jpg"
+        backgroundImage.src = "/images/space.jpg"
         backgroundImage.alt = "Background picture";
         backgroundImage.style.height = "100%";
         backgroundImage.style.width = "100%";
@@ -63,7 +62,7 @@ class Game {
             this.endGame();
         } 
         if (Math.random() > 0.98 && this.obstacles.length < 1) {
-            this.obstacles.push(new Obstacle(this.gameScreen));
+            this.obstacles = [new Obstacle(0, "/images/obstacle1.png"), new Obstacle(null, "/images/obstacle2.png")];
         }
     }
 
