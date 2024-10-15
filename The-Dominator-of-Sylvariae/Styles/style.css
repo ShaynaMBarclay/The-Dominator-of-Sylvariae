@@ -2,6 +2,7 @@ body {
     padding: 0;
     text-align: center;
     margin: 0;
+    overflow-y: hidden;
   }
   
   #Sylvariae-intro {
@@ -36,3 +37,46 @@ body {
     width: 600px;
     height: auto;
   }
+
+  /* Modal styling */
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1000; 
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  width: 400px;
+  max-width: 90%;
+  border-radius: 10px;
+  border-radius: 10px;
+  /*height: 100%;*/
+  box-shadow: 0px 4px rgba(rgb(247, 0, 255), rgb(75, 0, 78), rgb(255, 137, 247), alpha)
+  /*background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+}
+
+.modal-content {
+  background-color: #f3a3ff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #8400b4;
+  width: 30%;
+  text-align: center;
+}
+
+#close-modal {
+  padding: 10px 20px;
+  background-color: #3b0087;
+  color: rgb(170, 0, 255);
+  border: none;
+  cursor: pointer;
+}
+#death-image {
+  width: 100%;
+  height: auto;
+  max-width: 300px;  
+  margin: 0 auto; 
+  display: block; 
+  margin-bottom: 20px;
+}

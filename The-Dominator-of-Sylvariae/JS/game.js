@@ -11,11 +11,14 @@ class Game {
         const playerStartY = 500;
 
        // this.player = new Player(10, 10, 300, 300, "/images/player.png");
-       this.player = new Player(playerStartX, playerStartY, playerWidth, 200, "/images/player.png");
+       this.player = new Player(playerStartX, playerStartY, playerWidth, 200, "/images/playernew.png");
 
         this.obstacles = [new Obstacle(0, "/images/obstacle1.png"), new Obstacle(0, "/images/obstacle2.png")];
         this.score = 0;
         this.lives = 3;
+
+        this.projectiles = [];
+
         this.gameIsOver = false;
         this.gameIntervalId;
         this.LoopFrequency = 1000/60
@@ -43,6 +46,33 @@ class Game {
     }
     gameLoop() {
         this.update();
+         // Move projectiles
+    for (let i = 0; i < this.projectiles.length; i++) {
+        const projectile = this.projectiles[i];
+        projectile.move();
+
+        // Check for collision with obstacles
+        for (let j = 0; j < this.obstacles.length; j++) {
+            const obstacle = this.obstacles[j];
+            if (projectile.didCollide(obstacle)) {
+                // Remove the obstacle and the projectile upon collision
+                obstacle.element.remove();
+                this.obstacles.splice(j, 1);
+                projectile.element.remove();
+                this.projectiles.splice(i, 1);
+                this.score++;
+                i--;
+                break;
+            }
+        }
+
+        // Remove the projectile if it moves off-screen
+        if (projectile.left > this.width) {
+            projectile.element.remove();
+            this.projectiles.splice(i, 1);
+            i--;
+        }
+    }
         if (this.gameIsOver === true) {
           clearInterval(this.gameIntervalId);
         }
@@ -65,6 +95,10 @@ class Game {
          console.log(`Lives Remaining: ${this.lives}`);
          i--;
 
+           // Pause the game and show the modal
+      clearInterval(this.gameIntervalId); // Stop the game loop
+      this.showLifeLostModal(); // Show the pop-up
+
          //check is lives are zero
          if (this.lives === 0) {
             console.log("You died, no more lives");
@@ -83,6 +117,13 @@ class Game {
             this.obstacles = [new Obstacle(0, "/images/obstacle1.png"), new Obstacle(null, "/images/obstacle2.png")];
         }
     }
+    // Function to show the life-lost modal
+showLifeLostModal() {
+    const modal = document.getElementById("life-lost-modal");
+    const livesRemainingText = document.getElementById("lives-remaining");
+    livesRemainingText.textContent = this.lives;
+    modal.style.display = "block";
+  }
 
 endGame() {
     this.player.element.remove();
