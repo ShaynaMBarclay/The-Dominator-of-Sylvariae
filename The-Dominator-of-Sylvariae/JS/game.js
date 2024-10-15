@@ -7,6 +7,7 @@ class Game {
         //this.obstacle = new Obstacle (10, 10, 300, 300, "/images/obstacle1.PNG")
         this.height = 600;
         this.width = 500;
+        this.obstacles = [new Obstacle()];
         this.score = 0;
         this.gameIsOver = false;
         this.gameIntervalId;
@@ -39,20 +40,21 @@ class Game {
         }
       }
     update() {
+        this.counter++
         this.player.move();
         //checking for collision and if the obstacle is on the screen
         for (let i = 0; i < this.obstacles.length; i++) {
-            const obstacle = this.obstacle[i];
-            obstacle.move();
+            const Obstacle = this.obstacles[i];
+            Obstacle.move();
         //if the player collides with an obstacle
-        if (this.player.didCollide(obstacle)) {
-         obstacle.element.remove();
+        if (this.player.didCollide(Obstacle)) {
+         Obstacle.element.remove();
          this.obstacles.splice(i, 1);
          this.lives--;
          i--;
-        }  else if (obstacle.top > this.height) {
+        }  else if (Obstacle.top > this.height) {
             this.score++
-            obstacle.element.remove();
+            Obstacle.element.remove();
             this.obstacles.splice(i, 1);
             i--;
         } 
@@ -60,14 +62,14 @@ class Game {
         if (this.lives === 0) {
             this.endGame();
         } 
-        if (Math.random() > 0.98 && this.obstacle.length < 1) {
-            this.obstacle.push(new Obstacle(this.gameScreen));
+        if (Math.random() > 0.98 && this.obstacles.length < 1) {
+            this.obstacles.push(new Obstacle(this.gameScreen));
         }
     }
 
 endGame() {
     this.player.element.remove();
-    this.obstacle.forEach(obstacle => obstacle.element.remove());
+    this.Obstacle.forEach(Obstacle => Obstacle.element.remove());
 
     this.gameIsOver = true;
 
