@@ -1,5 +1,6 @@
 window.onload = function () {
     const startButton = document.getElementById("start-button");
+    const restartButton = document.getElementById("restart-button");
     let game;
     startButton.addEventListener("click", function () {
         startGame();
@@ -7,6 +8,10 @@ window.onload = function () {
     function startGame() {
         console.log("Enter World");
     game = new Game();
+
+    restartButton.addEventListener("click", () => {
+      window.location.reload();
+    })
 
 
     game.start();

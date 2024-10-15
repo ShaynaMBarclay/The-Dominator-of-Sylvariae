@@ -8,9 +8,11 @@ class Game {
         this.width = 500;
         this.obstacles = [new Obstacle(0, "/images/obstacle1.png"), new Obstacle(0, "/images/obstacle2.png")];
         this.score = 0;
+        this.lives = 3;
         this.gameIsOver = false;
         this.gameIntervalId;
         this.LoopFrequency = 1000/60
+        this.counter = 0;
     }
     start() {
         // hide the start screen
@@ -45,20 +47,27 @@ class Game {
         for (let i = 0; i < this.obstacles.length; i++) {
             const Obstacle = this.obstacles[i];
             Obstacle.move();
+            const didCollide = this.player.didCollide(Obstacle);
+            console.log("did it collide", didCollide);
+
         //if the player collides with an obstacle
-        if (this.player.didCollide(Obstacle)) {
+       // if (this.player.didCollide(Obstacle)) {
+       if (didCollide) {
          Obstacle.element.remove();
          this.obstacles.splice(i, 1);
-         this.lives--;
+         //this.lives--;
          i--;
         }  else if (Obstacle.top > this.height) {
-            this.score++
+           
             Obstacle.element.remove();
             this.obstacles.splice(i, 1);
+            this.lives--;
             i--;
+            this.score++;
         } 
     } 
         if (this.lives === 0) {
+            console.log("You died, no more lives");
             this.endGame();
         } 
         if (Math.random() > 0.98 && this.obstacles.length < 1) {
@@ -68,13 +77,13 @@ class Game {
 
 endGame() {
     this.player.element.remove();
-    this.Obstacle.forEach(Obstacle => Obstacle.element.remove());
+    this.obstacles.forEach(Obstacle => Obstacle.element.remove());
 
     this.gameIsOver = true;
 
     this.gameScreen.style.display = "none";
 
-    this.gameEndScreen.style.display = "block";
+    this.endScreen.style.display = "block";
 }
 }
 
