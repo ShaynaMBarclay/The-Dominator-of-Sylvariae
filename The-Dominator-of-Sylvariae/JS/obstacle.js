@@ -1,31 +1,32 @@
 class Obstacle {
     constructor (leftPosition = null, imageSrc) {
         this.gameScreen = document.querySelector("#Sylvariae-container");
-        //this.positionsX = [70, 175, 175, 175, 70];
-        //this.randomIndex = Math.floor(Math.random() * this.positionsX.length);
-        //a specific left position 
+ 
+         
+       
+        this.width = 180;
+        this.height = 180;
+
         if (leftPosition !== null) {
             this.left = leftPosition;
         } else {
             const screenWidth = this.gameScreen.offsetWidth;
-            this.left = Math.random() * (screenWidth - this.width);
+            this.left = Math.random() * (screenWidth - this.width); // Random left position across the screen
         }
 
-        //const screenWidth = this.gameScreen.offsetWidth;
-       // this.left = Math.random() * (screenWidth - this.width);
-       // this.left = this.positionsX[this.randomIndex];
-        this.top = 200;
-        this.width = 180;
-        this.height = 180;
+            const screenHeight = this.gameScreen.offsetHeight;
+            this.top = Math.random() * (screenHeight - this.height);
+        
+
         //create the img in js to append the game screen
         this.element = document.createElement("img")
-        this.element.style.position = "absolute";
-        //this.element.src = "/images/obstacle2.png";
+        this.element.style.position = "absolute";;
         this.element.src = imageSrc;
         this.element.style.height = `${this.height}px`;
         this.element.style.width = `${this.width}px`;
-        this.element.style.top = `${this.top}px`;
-        this.element.style.left = `${this.left}px`;
+        this.updatePosition();
+
+       // add to the DOM
         this.gameScreen.appendChild(this.element);
     }
     move() {

@@ -10,10 +10,10 @@ class Game {
         const playerStartX = 10;
         const playerStartY = 500;
 
-       // this.player = new Player(10, 10, 300, 300, "/images/player.png");
+       
        this.player = new Player(playerStartX, playerStartY, playerWidth, 200, "/images/playernew.png");
 
-        this.obstacles = [new Obstacle(400, "/images/obstacle1.png"), new Obstacle(800, "/images/obstacle2.png")];
+        this.obstacles = [];
         this.score = 0;
         this.lives = 3;
 
@@ -113,10 +113,25 @@ class Game {
         } 
     } 
     //spawning new obstacles
-        if (Math.random() > 0.98 && this.obstacles.length < 1) {
-            this.obstacles = [new Obstacle(400, "/images/obstacle1.png"), new Obstacle(800, "/images/obstacle2.png")];
-        }
+    if (Math.random() > 0.99) {  
+        const screenWidth = this.gameScreen.offsetWidth;
+        const randomXPosition = Math.random() * (screenWidth - 180);
+        
+        const randomImage = this.getRandomObstacleImage();
+
+        const newObstacle = new Obstacle(randomXPosition, randomImage);
+
+        this.obstacles.push(newObstacle);
     }
+}
+
+// Helper function to get random obstacle images
+getRandomObstacleImage() {
+    const obstacleImages = ["/images/obstacle1.png", "/images/obstacle2.png", "/images/obstacle3.png"];
+    const randomIndex = Math.floor(Math.random() * obstacleImages.length);
+    return obstacleImages[randomIndex];
+}
+
     // Function to show the life-lost modal
 showLifeLostModal() {
     const modal = document.getElementById("life-lost-modal");
