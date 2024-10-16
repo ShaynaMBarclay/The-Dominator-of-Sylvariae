@@ -138,6 +138,21 @@ showLifeLostModal() {
     const livesRemainingText = document.getElementById("lives-remaining");
     livesRemainingText.textContent = this.lives;
     modal.style.display = "block";
+
+        // Event listener for continue button
+        document.getElementById("close-modal").onclick = () => {
+            modal.style.display = "none"; // Hide the modal
+            // Resume the game
+            this.gameIntervalId = setInterval(() => {
+                this.gameLoop();
+            }, this.LoopFrequency);
+        };
+    
+        // Event listener for end game button
+        document.getElementById("end-game-early").onclick = () => {
+            modal.style.display = "none";
+            this.endGame(); // Call the end game function
+        };
   }
 
 endGame() {

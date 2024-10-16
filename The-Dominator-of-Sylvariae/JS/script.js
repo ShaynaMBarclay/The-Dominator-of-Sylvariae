@@ -51,16 +51,7 @@ window.onload = function () {
         }
       }
     });
-
-    document.getElementById("close-modal").addEventListener("click", function () {
-      const modal = document.getElementById("life-lost-modal");
-      modal.style.display = "none";
-      
-      // Resume the game
-      game.gameIntervalId = setInterval(() => {
-        game.gameLoop();
-      }, game.LoopFrequency);
-    });
+   
+  };
 
     
-  };
