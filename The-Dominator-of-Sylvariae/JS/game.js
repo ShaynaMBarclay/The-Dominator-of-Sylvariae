@@ -7,13 +7,13 @@ class Game {
         this.width = 500;
         // sets the Players starting postion to the Right side
         const playerWidth = 200;
-        const playerStartX = this.width - playerWidth - 10;
+        const playerStartX = 10;
         const playerStartY = 500;
 
        // this.player = new Player(10, 10, 300, 300, "/images/player.png");
        this.player = new Player(playerStartX, playerStartY, playerWidth, 200, "/images/playernew.png");
 
-        this.obstacles = [new Obstacle(0, "/images/obstacle1.png"), new Obstacle(0, "/images/obstacle2.png")];
+        this.obstacles = [new Obstacle(400, "/images/obstacle1.png"), new Obstacle(800, "/images/obstacle2.png")];
         this.score = 0;
         this.lives = 3;
 
@@ -67,7 +67,7 @@ class Game {
         }
 
         // Remove the projectile if it moves off-screen
-        if (projectile.left > this.width) {
+        if (projectile.left > this.gameScreen.offsetwidth + 20) {
             projectile.element.remove();
             this.projectiles.splice(i, 1);
             i--;
@@ -114,7 +114,7 @@ class Game {
     } 
     //spawning new obstacles
         if (Math.random() > 0.98 && this.obstacles.length < 1) {
-            this.obstacles = [new Obstacle(0, "/images/obstacle1.png"), new Obstacle(null, "/images/obstacle2.png")];
+            this.obstacles = [new Obstacle(400, "/images/obstacle1.png"), new Obstacle(800, "/images/obstacle2.png")];
         }
     }
     // Function to show the life-lost modal

@@ -19,7 +19,9 @@ window.onload = function () {
 
     game.start();
     }
+
     document.addEventListener("keydown", (event) => {
+      if (game) {
         if (event.code === "ArrowRight") {
           game.player.directionX = 2;
         }
@@ -46,6 +48,7 @@ window.onload = function () {
               "/images/goldstar.png"
           );
           game.projectiles.push(projectile);
+        }
       }
     });
 

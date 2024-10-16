@@ -5,7 +5,7 @@ class Projectile {
         this.top = y;
         this.width = width;
         this.height = height;
-        this.speed = 5;
+        this.speed = 3;
 
         this.element = document.createElement("img");
         this.element.src = imageSrc;

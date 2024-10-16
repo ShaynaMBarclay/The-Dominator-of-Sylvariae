@@ -64,4 +64,20 @@ class Player {
         return false;
       }
     }
+     // Getter methods for position and size
+     getLeft() {
+      return this.left;
+  }
+
+  getTop() {
+      return this.top;
+  }
+
+  getWidth() {
+      return this.width;
+  }
+
+  getHeight() {
+      return this.height;
+  }
 }
