@@ -136,7 +136,11 @@ getRandomObstacleImage() {
 showLifeLostModal() {
     const modal = document.getElementById("life-lost-modal");
     const livesRemainingText = document.getElementById("lives-remaining");
+    const enemyWarningText = document.getElementById("enemy-warning");
+
+
     livesRemainingText.textContent = this.lives;
+    enemyWarningText.style.display = "block";
     modal.style.display = "block";
 
         // Event listener for continue button
