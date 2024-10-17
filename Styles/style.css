@@ -96,20 +96,37 @@ text-shadow:
     height: 100vh;
   }
   
-  #Sylvariae-end {
-    cursor: url('../images/cursor1.png') 16 16, auto;
-    display: none;
-    align-content: center;
-    padding: 20px 0px;
-    overflow: hidden;
-    position: relative;
-    background-size: cover;
-    animation: slide 5s linear infinite;
-  }
+
   #Sylvariae-end img {
-    width: 600px;
-    height: auto;
+    width: 400px; 
+    height: auto; 
+    margin-right: 20px
   }
+
+  #toggle-death-music {
+    background-image: url('../images/music1.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    padding: 10px 20px;
+    width: 150px;
+    height: 50px
+
+  }
+
+  #restart-button {
+    background-image: url('../images/start.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    padding: 10px 20px;
+    width: 150px;
+    height: 50px  
+  }
+
+
 
   /* Modal styling */
 .modal {
@@ -155,8 +172,19 @@ text-shadow:
 #death-image {
   width: 100%;
   height: auto;
-  max-width: 300px;  
+  max-width: 800px;  
   margin: 0 auto; 
   display: block; 
   margin-bottom: 20px;
+}
+
+
+#Sylvariae-end {
+  height: 100vh;
+  display: none;
+  width: 100vw;
+  cursor: url('../images/cursor1.png') 16 16, auto;
+  padding: 20px 0px;
+  background-color: rgb(170, 0, 255);
+  animation: slide 5s linear infinite;
 }

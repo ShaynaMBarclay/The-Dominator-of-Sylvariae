@@ -182,6 +182,7 @@ endGame() {
 
     this.gameIsOver = true;
 
+    this.startScreen.style.display = "none";
     this.gameScreen.style.display = "none";
 
     this.endScreen.style.display = "block";

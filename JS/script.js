@@ -46,9 +46,9 @@ window.onload = function () {
 
     function startGame() {
         console.log("Enter World");
-    game = new Game();
-this.startMusic.pause();
-this.isMusicPlaying = false;
+        game = new Game();
+        this.startMusic.pause();
+        this.isMusicPlaying = false;
     restartButton.addEventListener("click", () => {
       window.location.reload();
     });
