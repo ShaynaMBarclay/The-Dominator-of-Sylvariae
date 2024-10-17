@@ -3,18 +3,90 @@ body {
     text-align: center;
     margin: 0;
     overflow-y: hidden;
+
   }
   
+ 
+
   #Sylvariae-intro {
+    height: 100vh;
+    width: 100vw;
+    cursor: url('/images/cursor1.png') 16 16, auto;
     padding: 20px 0px;
+    background-color: rgb(170, 0, 255);
   }
-  #Sylvariae-intro img {
-    width: 600px; 
-    height: auto; 
+
+    
+.intro-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  max-width: 800px;
+  width: 100%;
 }
+
+
+  #Sylvariae-intro img {
+    width: 400px; 
+    height: auto; 
+    margin-right: 20px
+}
+
+#intro-paragraph {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  max-width: 400px;
+  text-align: left;
+  animation: blink 0.7 step-end infinite; /* blinking effect*/
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+button, 
+input[type="button"], 
+input[type="submit"] {
+    cursor: url('/images/cursor1.png') 16 16, auto; 
+}
+
+#toggle-music {
+  background-image: url('/images/music1.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  padding: 10px 20px;
+  width: 150px;
+  height: 50px
+}
+
+#start-button {
+  background-image: url('/images/start.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  padding: 10px 20px;
+  width: 150px;
+  height: 50px  
+}
+.game-title {
+font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+font-size: 2em;
+color: rgb(255, 137, 247);
+text-shadow:
+ 0px 0px 10px rgba(75, 1, 100, 0.6),
+0 0 5px rgba(255, 255, 255, 0.8);
+  }
+
 
   
   #Sylvariae-container {
+    cursor: url('/images/cursor1.png') 16 16, auto;
     display: none;
     align-content: center;
     overflow: hidden;
@@ -25,6 +97,7 @@ body {
   }
   
   #Sylvariae-end {
+    cursor: url('/images/cursor1.png') 16 16, auto;
     display: none;
     align-content: center;
     padding: 20px 0px;
@@ -70,7 +143,6 @@ body {
   background-color: #3b0087;
   color: rgb(170, 0, 255);
   border: none;
-  cursor: pointer;
 }
 
 #end-game-early {
@@ -78,7 +150,6 @@ body {
   background-color: rgb(0, 0, 0);
   color: #ff0000;
   border: none;
-  cursor: pointer;
 }
 
 #death-image {
