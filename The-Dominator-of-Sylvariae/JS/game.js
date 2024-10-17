@@ -5,6 +5,10 @@ class Game {
         this.endScreen = document.getElementById("Sylvariae-end");
         this.height = 600;
         this.width = 500;
+
+        //collision sound
+        this.laughSound = new Audio('/sounds/laugh.ogg');
+        this.spellSound = new Audio('/sounds/spell.wav');
         // sets the Players starting postion to the Right side
         const playerWidth = 200;
         const playerStartX = 10;
@@ -43,6 +47,10 @@ class Game {
         this.gameIntervalId = setInterval(() => {
             this.gameLoop();
         }, this.LoopFrequency)
+
+
+        //event listener for starting music
+        
     }
     gameLoop() {
         this.update();
@@ -62,6 +70,11 @@ class Game {
                 this.projectiles.splice(i, 1);
                 this.score++;
                 i--;
+
+                //projectile hit sound
+                this.spellSound.currentTime = 0;
+                this.spellSound.play();
+
                 break;
             }
         }
@@ -94,6 +107,10 @@ class Game {
          this.lives--;
          console.log(`Lives Remaining: ${this.lives}`);
          i--;
+
+         //play the laugh sound
+         this.laughSound.currentTime = 0;
+         this.laughSound.play();
 
            // Pause the game and show the modal
       clearInterval(this.gameIntervalId); // Stop the game loop
@@ -168,6 +185,22 @@ endGame() {
     this.gameScreen.style.display = "none";
 
     this.endScreen.style.display = "block";
+
+    //death music
+    this.deathMusic = new Audio('/sounds/endmusic.mp3');
+    this.deathMusic.loop = true;
+    this.isDeathMusicPlaying = false;
+
+    const toggleDeathMusicButton = document.getElementById('toggle-death-music');
+    toggleDeathMusicButton.addEventListener('click', () => {
+        if (this.isDeathMusicPlaying) {
+            this.deathMusic.pause();
+            this.isDeathMusicPlaying = false;
+        } else {
+            this.deathMusic.play();
+            this.isDeathMusicPlaying = true;
+        }
+    });
 }
 }
 
