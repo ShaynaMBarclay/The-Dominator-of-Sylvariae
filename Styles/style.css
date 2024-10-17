@@ -11,7 +11,7 @@ body {
   #Sylvariae-intro {
     height: 100vh;
     width: 100vw;
-    cursor: url('/images/cursor1.png') 16 16, auto;
+    cursor: url('images/cursor1.png') 16 16, auto;
     padding: 20px 0px;
     background-color: rgb(170, 0, 255);
   }
@@ -50,11 +50,11 @@ body {
 button, 
 input[type="button"], 
 input[type="submit"] {
-    cursor: url('/images/cursor1.png') 16 16, auto; 
+    cursor: url('images/cursor1.png') 16 16, auto; 
 }
 
 #toggle-music {
-  background-image: url('/images/music1.jpg');
+  background-image: url('images/music1.jpg');
   background-size: contain;
   background-repeat: no-repeat;
   background-color: transparent;
@@ -65,7 +65,7 @@ input[type="submit"] {
 }
 
 #start-button {
-  background-image: url('/images/start.jpg');
+  background-image: url('images/start.jpg');
   background-size: contain;
   background-repeat: no-repeat;
   background-color: transparent;
@@ -86,7 +86,7 @@ text-shadow:
 
   
   #Sylvariae-container {
-    cursor: url('/images/cursor1.png') 16 16, auto;
+    cursor: url('images/cursor1.png') 16 16, auto;
     display: none;
     align-content: center;
     overflow: hidden;
@@ -97,7 +97,7 @@ text-shadow:
   }
   
   #Sylvariae-end {
-    cursor: url('/images/cursor1.png') 16 16, auto;
+    cursor: url('images/cursor1.png') 16 16, auto;
     display: none;
     align-content: center;
     padding: 20px 0px;
