@@ -81,7 +81,7 @@ this.isMusicPlaying = false;
               game.player.top + (game.player.height / 2) - 5, 
               20, 
               10, 
-              "/images/goldstar.png"
+              "images/goldstar.png"
           );
           game.projectiles.push(projectile);
         }
