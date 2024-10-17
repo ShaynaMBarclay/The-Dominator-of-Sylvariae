@@ -15,7 +15,7 @@ class Game {
         const playerStartY = 500;
 
        
-       this.player = new Player(playerStartX, playerStartY, playerWidth, 200, "images/playernew.png");
+       this.player = new Player(playerStartX, playerStartY, playerWidth, 200, "../images/playernew.png");
 
         this.obstacles = [];
         this.score = 0;
@@ -144,7 +144,7 @@ class Game {
 
 // Helper function to get random obstacle images
 getRandomObstacleImage() {
-    const obstacleImages = ["images/obstacle1.png", "images/obstacle2.png", "images/obstacle3.png"];
+    const obstacleImages = ["../images/obstacle1.png", "../images/obstacle2.png", "../images/obstacle3.png"];
     const randomIndex = Math.floor(Math.random() * obstacleImages.length);
     return obstacleImages[randomIndex];
 }
