@@ -20,7 +20,7 @@ window.onload = function () {
 
 
     //starting screen music
-    this.startMusic = new Audio('../sounds/startmusic.mp3');
+    this.startMusic = new Audio('sounds/startmusic.mp3');
     this.startMusic.loop = true;
     this.isMusicPlaying = false;
 
