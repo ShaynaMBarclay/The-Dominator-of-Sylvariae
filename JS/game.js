@@ -144,7 +144,7 @@ class Game {
 
 // Helper function to get random obstacle images
 getRandomObstacleImage() {
-    const obstacleImages = ["/images/obstacle1.png", "/images/obstacle2.png", "/images/obstacle3.png"];
+    const obstacleImages = ["images/obstacle1.PNG", "images/obstacle2.PNG", "images/obstacle3.PNG"];
     const randomIndex = Math.floor(Math.random() * obstacleImages.length);
     return obstacleImages[randomIndex];
 }
