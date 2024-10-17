@@ -7,15 +7,15 @@ class Game {
         this.width = 500;
 
         //collision sound
-        this.laughSound = new Audio('/sounds/laugh.ogg');
-        this.spellSound = new Audio('/sounds/spell.wav');
+        this.laughSound = new Audio('../sounds/laugh.ogg');
+        this.spellSound = new Audio('../sounds/spell.wav');
         // sets the Players starting postion to the Right side
         const playerWidth = 200;
         const playerStartX = 10;
         const playerStartY = 500;
 
        
-       this.player = new Player(playerStartX, playerStartY, playerWidth, 200, "../images/playernew.png");
+       this.player = new Player(playerStartX, playerStartY, playerWidth, 200, "/images/playernew.png");
 
         this.obstacles = [];
         this.score = 0;
@@ -35,7 +35,7 @@ class Game {
         this.gameScreen.style.display = "block";
         this.gameScreen.style.width = "100%";
         let backgroundImage = document.createElement("img");
-        backgroundImage.src = "images/space.jpg"
+        backgroundImage.src = "/images/space.jpg"
         backgroundImage.alt = "Background picture";
         backgroundImage.style.height = "100%";
         backgroundImage.style.width = "100%";
@@ -144,7 +144,7 @@ class Game {
 
 // Helper function to get random obstacle images
 getRandomObstacleImage() {
-    const obstacleImages = ["../images/obstacle1.png", "../images/obstacle2.png", "../images/obstacle3.png"];
+    const obstacleImages = ["/images/obstacle1.png", "/images/obstacle2.png", "/images/obstacle3.png"];
     const randomIndex = Math.floor(Math.random() * obstacleImages.length);
     return obstacleImages[randomIndex];
 }
@@ -187,7 +187,7 @@ endGame() {
     this.endScreen.style.display = "block";
 
     //death music
-    this.deathMusic = new Audio('/sounds/endmusic.mp3');
+    this.deathMusic = new Audio('../sounds/endmusic.mp3');
     this.deathMusic.loop = true;
     this.isDeathMusicPlaying = false;
 
