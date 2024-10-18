@@ -130,13 +130,15 @@ class Game {
         } 
     } 
     //spawning new obstacles
-    if (Math.random() > 0.99) {  
+    if (Math.random() > 0.98) {  
         const screenWidth = this.gameScreen.offsetWidth;
         const randomXPosition = Math.random() * (screenWidth - 180);
+
+        const yPositionAtTop = 0;
         
         const randomImage = this.getRandomObstacleImage();
 
-        const newObstacle = new Obstacle(randomXPosition, randomImage);
+        const newObstacle = new Obstacle(randomXPosition, yPositionAtTop, randomImage);
 
         this.obstacles.push(newObstacle);
     }

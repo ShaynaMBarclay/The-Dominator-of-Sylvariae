@@ -92,9 +92,11 @@ text-shadow:
     overflow: hidden;
     position: relative;
     animation: slide 5s linear infinite;
-    width: 100vw;
-    height: 100vh;
+    width: 500px;
+    height: 600px;
   }
+
+ 
   
 
   #Sylvariae-end img {
